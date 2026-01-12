@@ -98,6 +98,23 @@ gitleaks detect --source . --report-format json --report-path evidence/gitleaks-
 | Secrets détectés     | 1 | 0 |
 | Sécurité globale     | ❌ | ✅ |
 
+## Outils utilisés
+
+### 1. Trivy
+- **Rôle** : Scanner de vulnérabilités des dépendances
+- **Utilisation** : Détection des vulnérabilités connues dans les packages npm
+- **Commande** : `trivy fs . --format table --output evidence/trivy-scan.txt`
+
+### 2. Gitleaks
+- **Rôle** : Détection des secrets dans le code
+- **Utilisation** : Identification des clés API, mots de passe, etc. exposés
+- **Commande** : `gitleaks detect --source . --report-format json --report-path evidence/gitleaks-scan.json`
+
+### 3. NVD (National Vulnerability Database)
+- **Rôle** : Base de données des vulnérabilités
+- **Utilisation** : Recherche détaillée des CVE identifiés par Trivy
+- **Lien** : [https://nvd.nist.gov](https://nvd.nist.gov)
+
 ## Conclusion
 Toutes les vulnérabilités critiques ont été corrigées. Le projet est maintenant sécurisé pour le déploiement en production. Les mesures mises en place incluent :
 - Mise à jour de toutes les dépendances vulnérables
